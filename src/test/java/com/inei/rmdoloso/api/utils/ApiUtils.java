@@ -18,7 +18,7 @@ public class ApiUtils {
 
     public static void sendPostRequest(String apiUrl, Map<String, String> requestBody) {
         SerenityRest.given().relaxedHTTPSValidation()
-                .contentType(ContentType.MULTIPART)
+                .contentType(ContentType.JSON)
                 .body(requestBody).log().all()
                 .post(apiUrl);
         responseCode = SerenityRest.then().extract().statusCode();
