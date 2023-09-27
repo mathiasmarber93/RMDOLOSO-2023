@@ -84,6 +84,14 @@
             <version>5.5.3</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/net.serenity-bdd/serenity-rest-assured -->
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-rest-assured</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
