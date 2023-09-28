@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com.inei.rmdoloso.api.definitions",
-        tags = "@API and @test1"
+        tags = "@API"
 )
 public class Runner {
 }

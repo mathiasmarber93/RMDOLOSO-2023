@@ -3,6 +3,7 @@ package com.inei.rmdoloso.api.utils;
 import io.restassured.http.ContentType;
 import net.serenitybdd.rest.SerenityRest;
 
+import java.io.File;
 import java.util.Map;
 
 public class ApiUtils {
@@ -16,10 +17,11 @@ public class ApiUtils {
         responseCode = SerenityRest.then().extract().statusCode();
     }
 
-    public static void sendPostRequest(String apiUrl, Map<String, String> requestBody) {
+    public static void sendPostRequest(String file, String apiUrl, Map<String, String> requestBody) {
         SerenityRest.given().relaxedHTTPSValidation()
-                .contentType(ContentType.JSON)
-                .body(requestBody).log().all()
+                .contentType(ContentType.MULTIPART)
+                .multiPart("uploaded_file", new File(file))
+                .formParams(requestBody)
                 .post(apiUrl);
         responseCode = SerenityRest.then().extract().statusCode();
     }
